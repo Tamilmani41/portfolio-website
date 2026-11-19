@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tamil Mani — Unity Gameplay Programmer</title>
+  <meta name="description" content="Tamil Mani (Cosmyth) — Unity gameplay programmer. Games, gameplay footage and reusable systems.">
+
+  <!-- Fonts: Manrope for display, Inter for body, JetBrains Mono for technical labels -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor (desktop only, respects reduced motion) -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand">
+        <span class="nav-brand-name">Tamil Mani</span>
+        <span class="nav-brand-alias">Cosmyth</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#systems" class="nav-link" data-section="systems">Systems</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <canvas id="physicsCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-avatar reveal">
+        <div class="hero-avatar-frame">
+          <img src="assets/profile.jpg" alt="Portrait of Tamil Mani" width="480" height="480">
+        </div>
+      </div>
+
+      <div class="hero-orbit hero-orbit-1" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-2" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow reveal">Unity Gameplay Programmer</p>
+        <h1 class="hero-headline reveal" style="--delay:1">Tamil Mani</h1>
+        <p class="hero-intro reveal" style="--delay:2">I build gameplay systems in Unity and C#, and release indie games as <strong class="accent-text">Cosmyth</strong>.</p>
+
+        <div class="hero-actions reveal" style="--delay:3">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects" id="projects">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card project-card--featured reveal">
+            <div class="project-thumb" data-hover-video>
+              <video muted loop playsinline preload="auto" poster="assets/emberveil-poster.jpg" aria-label="Emberveil gameplay footage">
+                <source src="assets/emberveil.webm" type="video/webm">
+                <source src="assets/emberveil.mp4" type="video/mp4">
+              </video>
+              <span class="thumb-label">Hover to play</span>
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">My first game</p>
+              <h3>Emberveil</h3>
+              <p>A dark 2D wave-survival platformer where light is both your weapon and your lifeline.</p>
+              <p class="project-focus"><span>Focus</span>Dynamic darkness, lantern and orb light mechanics, one custom shader</p>
+              <div class="project-tech"><span>Unity</span><span>C#</span><span>Custom Shader</span></div>
+              <div class="project-actions">
+                <a href="https://cosmyth.itch.io/emberveil" class="btn btn-small btn-primary" target="_blank" rel="noopener">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-thumb" data-hover-video>
+              <video muted loop playsinline preload="metadata" poster="assets/tanks.jpg" aria-label="Tanks gameplay footage">
+                <source src="assets/tanks.webm" type="video/webm">
+                <source src="assets/tanks.mp4" type="video/mp4">
+              </video>
+              <span class="thumb-label">Hover to play</span>
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Unity Learn project</p>
+              <h3>Tanks – 3D Tank Battle</h3>
+              <p>3D top-down tank combat against AI tanks, with local 2-player PvP. Builds for Windows, Android and WebGL.</p>
+              <p class="project-focus"><span>Focus</span>AI navigation, projectile system, local multiplayer</p>
+              <div class="project-tech"><span>Unity 6</span><span>C#</span><span>NavMesh</span></div>
+              <div class="project-actions">
+                <a href="https://cosmyth.itch.io/tanks" class="btn btn-small btn-primary" target="_blank" rel="noopener">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-thumb" data-hover-video>
+              <video muted loop playsinline preload="metadata" poster="assets/whyme.jpg" aria-label="WHY ME?! gameplay footage">
+                <source src="assets/whyme.webm" type="video/webm">
+                <source src="assets/whyme.mp4" type="video/mp4">
+              </video>
+              <span class="thumb-label">Hover to play</span>
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">First solo game jam</p>
+              <h3>WHY ME?! – Trapped in the Facility</h3>
+              <p>2D platformer made for GMTK Game Jam 2026. Escape a nuclear facility before the countdown reaches zero.</p>
+              <p class="project-focus"><span>Focus</span>Player movement, environmental hazards, switch puzzles, level design</p>
+              <div class="project-tech"><span>Unity</span><span>C#</span><span>GMTK Jam 2026</span></div>
+              <div class="project-actions">
+                <a href="https://cosmyth.itch.io/gmtk-2026" class="btn btn-small btn-primary" target="_blank" rel="noopener">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-thumb" data-hover-video>
+              <video muted loop playsinline preload="metadata" poster="assets/skeptic.jpg" aria-label="SKEPTIC gameplay footage">
+                <source src="assets/skeptic.webm" type="video/webm">
+                <source src="assets/skeptic.mp4" type="video/mp4">
+              </video>
+              <span class="thumb-label">Hover to play</span>
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Team of 7 · Programmer</p>
+              <h3>SKEPTIC – 3D Horror Maze</h3>
+              <p>3D horror maze made for Brackeys Game Jam 2026.2. Avoid monsters and traps, and question the messages you get.</p>
+              <p class="project-focus"><span>Focus</span>Gameplay programming, event-driven architecture</p>
+              <div class="project-tech"><span>Unity</span><span>C#</span><span>Brackeys Jam</span></div>
+              <div class="project-actions">
+                <a href="https://javokhirbek-ibragimov.itch.io/skeptic" class="btn btn-small btn-primary" target="_blank" rel="noopener">Play on Itch.io</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SYSTEMS ============ -->
+    <section class="systems" id="systems">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Systems</h2>
+        <div class="systems-grid">
+          <article class="project-card system-card reveal">
+            <div class="project-body">
+              <div class="system-head">
+                <div class="system-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="7" width="19" height="10" rx="5"/><path d="M7.5 10.5v3M6 12h3"/><circle cx="15.5" cy="11" r="0.9"/><circle cx="17.8" cy="13" r="0.9"/></svg>
+                </div>
+              </div>
+              <h3>Player Controller</h3>
+              <p>A modular 2D player controller for Unity. Gameplay modules are plain C# classes, kept separate from the physics API by a Rigidbody adapter.</p>
+              <div class="project-tech"><span>Unity 6</span><span>C#</span><span>2D</span><span>Modular</span></div>
+              <div class="project-actions">
+                <a href="https://github.com/Tamilmani41/Player-Controller" class="btn btn-small btn-primary" target="_blank" rel="noopener" aria-label="Player Controller on GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg> GitHub</a>
+                <a href="https://github.com/Tamilmani41/Player-Controller#readme" class="btn btn-small btn-ghost" target="_blank" rel="noopener" aria-label="Player Controller README (opens in a new tab)">README</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card system-card reveal">
+            <div class="project-body">
+              <div class="system-head">
+                <div class="system-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h11l3 3v15H5z"/><path d="M8 3v5h7V3"/><rect x="8" y="13" width="8" height="8"/></svg>
+                </div>
+                <span class="tag">V1</span>
+              </div>
+              <h3>Engine-Independent Save System</h3>
+              <p>A C# save system with no game-engine dependency. JSON serialization, local file storage, xUnit tests.</p>
+              <div class="project-tech"><span>C#</span><span>.NET 10</span><span>JSON</span><span>xUnit</span></div>
+              <div class="project-actions">
+                <a href="https://github.com/Tamilmani41/Engine-independent-save-system" class="btn btn-small btn-primary" target="_blank" rel="noopener" aria-label="Engine-Independent Save System on GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg> GitHub</a>
+                <a href="https://github.com/Tamilmani41/Engine-independent-save-system#readme" class="btn btn-small btn-ghost" target="_blank" rel="noopener" aria-label="Engine-Independent Save System README (opens in a new tab)">README</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="skills" id="skills">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Skills</h2>
+        <div class="skills-list">
+          <div class="skill-row reveal">
+            <h3>Languages</h3>
+            <div class="project-tech"><span>C# · Primary</span><span>Python · Foundational</span><span>C++ · Foundational</span></div>
+          </div>
+          <div class="skill-row reveal">
+            <h3>Engine &amp; Tools</h3>
+            <div class="project-tech"><span>Unity</span><span>Git</span><span>GitHub</span><span>Visual Studio</span><span>VS Code</span></div>
+          </div>
+          <div class="skill-row reveal">
+            <h3>Gameplay</h3>
+            <div class="project-tech"><span>Player movement &amp; combat</span><span>AI behaviors</span><span>Physics-based gameplay</span><span>Gameplay system design</span><span>Object-oriented design</span></div>
+          </div>
+          <div class="skill-row reveal">
+            <h3>Foundations</h3>
+            <div class="project-tech"><span>Math for game development</span><span>Physics for games</span><span>Debugging</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-note reveal">Open to Unity gameplay programmer roles and collaborations.</p>
+
+        <div class="contact-grid">
+          <a href="mailto:r.v.tamilmani2042@gmail.com" class="contact-card reveal">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+            </div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">r.v.tamilmani2042@gmail.com</span>
+          </a>
+
+          <a href="https://github.com/Tamilmani41" class="contact-card reveal" target="_blank" rel="noopener">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            </div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/Tamilmani41</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/tamilmani41" class="contact-card reveal" target="_blank" rel="noopener">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><path d="M11 17v-4.5a2 2 0 0 1 4 0V17"/><line x1="11" y1="10.5" x2="11" y2="17"/></svg>
+            </div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/tamilmani41</span>
+          </a>
+
+          <a href="https://cosmyth.itch.io" class="contact-card reveal" target="_blank" rel="noopener">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8.5 5 4h14l2 4.5-2 2a3 3 0 0 1-4.2.4A3 3 0 0 1 12 8.5a3 3 0 0 1-2.8 2.4A3 3 0 0 1 5 10.5z"/><path d="M4 10.5V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8.5"/><path d="M9 20v-4a2.5 2.5 0 0 1 5 0v4"/></svg>
+            </div>
+            <span class="contact-label">Itch.io</span>
+            <span class="contact-value">cosmyth.itch.io</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Tamil Mani. Built with HTML, CSS &amp; JavaScript.</p>
+      <a href="#home" class="footer-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
